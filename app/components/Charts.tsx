@@ -34,7 +34,7 @@ export function ConversionTrendChart({ dates, values, anomalies }: ConvTrendProp
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="date" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
         <YAxis tick={{ fontSize: 11 }} unit="%" />
-        <Tooltip formatter={(v: number) => [`${v}%`, "전환율"]} />
+        <Tooltip formatter={(v) => [`${v}%`, "전환율"]} />
         <ReferenceLine y={mean} stroke="#94a3b8" strokeDasharray="4 4" label={{ value: `평균 ${mean.toFixed(1)}%`, fontSize: 10, fill: "#94a3b8" }} />
         <Line type="monotone" dataKey="전환율" stroke="#6366f1" strokeWidth={2} dot={(props) => {
           const { cx, cy, index } = props;
@@ -68,7 +68,7 @@ export function DayOfWeekChart({ data }: DayOfWeekProps) {
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="day" tick={{ fontSize: 12 }} />
         <YAxis tick={{ fontSize: 11 }} unit="%" />
-        <Tooltip formatter={(v: number) => [`${v}%`, "평균 전환율"]} />
+        <Tooltip formatter={(v) => [`${v}%`, "평균 전환율"]} />
         <Bar dataKey="convRate" fill="#818cf8" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
@@ -92,7 +92,7 @@ export function CPAChart({ dates, values }: CPATrendProps) {
         <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
         <XAxis dataKey="date" tick={{ fontSize: 11 }} interval="preserveStartEnd" />
         <YAxis tick={{ fontSize: 11 }} unit="원" />
-        <Tooltip formatter={(v: number) => [`${v.toLocaleString()}원`, "CPA"]} />
+        <Tooltip formatter={(v) => [`${Number(v).toLocaleString()}원`, "CPA"]} />
         <Line type="monotone" dataKey="CPA" stroke="#f59e0b" strokeWidth={2} dot={false} />
       </LineChart>
     </ResponsiveContainer>
